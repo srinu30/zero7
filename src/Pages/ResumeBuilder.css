@@ -1,0 +1,337 @@
+ /* RESET */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* LAYOUT */
+  .rb-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* SIDEBAR */
+  .rb-sidebar {
+    width: 340px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .rb-sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 20px;
+  }
+  
+  /* TABS */
+  .rb-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #ddd;
+    background: #f8fafc;
+  }
+  
+  .rb-tabs button {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .rb-tabs .active {
+    background: #0ea5e9;
+    color: white;
+  }
+  
+  /* INPUTS */
+  .input, .textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .textarea {
+    min-height: 70px;
+  }
+  
+  /* GROUPS */
+  .control-group {
+    margin-bottom: 24px;
+  }
+  
+  .control-group h3 {
+    margin: 0 0 10px 0;
+    font-size: 17px;
+    color: #0f172a;
+    border-left: 4px solid #0ea5e9;
+    padding-left: 8px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* ARRAY ITEMS */
+  .array-item {
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #fafafa;
+  }
+  
+  /* BUTTONS */
+  .btn-add {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: #10b981;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+  .btn-del {
+    padding: 6px 10px;
+    border: none;
+    background: #ef4444;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  
+  .btn-export {
+    width: 100%;
+    padding: 12px;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+  
+  .sidebar-footer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+  }
+  
+  /* LAYOUT TAB */
+  .drag-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .drag-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #f8fafc;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .btn-vis {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .btn-vis.on {
+    color: #0ea5e9;
+  }
+  
+  .btn-vis.off {
+    color: #ef4444;
+  }
+  
+  /* MAIN PREVIEW AREA */
+  .rb-main {
+    flex: 1;
+    overflow: auto;
+    background: #e5e7eb;
+    padding: 20px;
+  }
+  
+  .preview-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .page-scale {
+    width: 794px;
+    min-height: 1123px;
+    background: white;
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    transform-origin: top center;
+    padding: 0;
+  }
+  
+  /* RESUME SECTIONS */
+  .resume-section {
+    margin-bottom: 20px;
+  }
+  
+  .section-divider {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+  }
+  
+  /* PREVIEW PAGE */
+  .sheet {
+    width: 100%;
+    min-height: 1123px;
+    background: white;
+    padding: 40px;
+  }
+  
+  /* --- CREATIVE - 4 (Modern Clean Template) --- */
+  .creative-4 {
+    padding: 40px 50px;
+    background: #ffffff;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* HEADER */
+  .c4-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .c4-name {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    color: #0f172a;
+  }
+  
+  .c4-title {
+    font-size: 18px;
+    color: #475569;
+    margin-top: 4px;
+  }
+  
+  .c4-right {
+    text-align: right;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.6;
+  }
+  
+  .c4-label {
+    font-weight: 600;
+    color: #0f172a;
+  }
+  
+  /* DIVIDER */
+  .c4-divider {
+    height: 3px;
+    background: #0f172a;
+    margin: 20px 0 30px 0;
+  }
+  
+  /* BODY */
+  .c4-body {
+    font-size: 15px;
+    color: #1e293b;
+  }
+  
+  .c4-section-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 20px;
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    color: #0f172a;
+  }
+  
+  /* EXPERIENCE */
+  .c4-exp-role {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .c4-exp-company {
+    font-style: italic;
+    opacity: 0.7;
+  }
+  
+  .c4-exp-date {
+    float: right;
+    opacity: 0.9;
+  }
+  
+  /* PROFILE PICTURE (CREATIVE 4) */
+  .c4-image-container {
+    width: 160px;
+    height: auto;
+  }
+  
+  /* Place image slightly rounded */
+  .c4-image {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  
+  /* SCROLLBAR STYLING */
+  .rb-sidebar-content::-webkit-scrollbar,
+  .rb-main::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .rb-sidebar-content::-webkit-scrollbar-thumb,
+  .rb-main::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+  }
+  
+  /* GRID FOR TEMPLATE THUMBNAILS */
+  .thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .thumb {
+    background: #f1f5f9;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+  }
+  
+  .thumb.active {
+    background: #0ea5e9;
+    color: white;
+    border-color: #0ea5e9;
+  }
+  
+  

@@ -1,0 +1,369 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-manage-jobs {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  color: #333;
+}
+
+.main-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  letter-spacing: 0.5px;
+}
+
+/* Card Styling (for listings, not used for the form anymore as it's a popup) */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+/* --- NEW STYLES for top action buttons layout --- */
+.top-actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.left-actions,
+.right-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Override margin on the add job button when in this container */
+.left-actions .add-new-job-button {
+  margin: 0;
+}
+
+/* Add New Job Posting Button */
+.add-new-job-button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 30px auto;
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.add-new-job-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.add-new-job-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* --- NEW STYLE for Bulk Delete Button --- */
+.delete-selected-button {
+  padding: 15px 30px;
+  background-color: #dc3545; /* Red color for delete action */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.delete-selected-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+
+/* Pop-up Overlay and Content */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  overflow: scroll;
+}
+
+.popup-content {
+  background-color: #ffffff;
+  padding: 35px 40px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 600px;
+  /* position: relative; */
+  transform: translateY(-20px);
+  animation: slideIn 0.3s ease-out forwards;
+ 
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-popup-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-popup-button:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+
+.popup-content h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2em;
+}
+
+/* Form Styling within Pop-up */
+.add-job-form .form-group {
+  margin-bottom: 20px;
+}
+
+.add-job-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.add-job-form input {
+  width: calc(100% - 24px); /* Account for padding */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-job-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.post-job-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 25px;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.post-job-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+}
+
+.post-job-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Job Listings Table Styling */
+.listings-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2em;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden; /* Ensures rounded corners on table */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.jobs-table th, .jobs-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.jobs-table th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+}
+
+/* Dynamic Hover and Transition for Table Rows */
+.jobs-table tbody tr {
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.jobs-table tbody tr:nth-child(even) {
+  background-color: #fbfbfb;
+}
+
+.jobs-table tbody tr:hover {
+  background-color: #e9f7ff; /* Light blue hover */
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+  z-index: 1; /* Bring hovered row slightly to front */
+}
+
+/* Delete Button in Table */
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+/* Messages */
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  padding: 15px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.no-jobs-found {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* --- NEW STYLES ADDED FOR EXCEL ACTIONS --- */
+
+.excel-actions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; /* Provides space between the two links */
+  margin-top: -10px; /* Pulls it closer to the button above */
+  margin-bottom: 40px; /* Pushes the "Current Job Listings" card down */
+}
+.excel-action-link {
+  display: inline-block;
+  background: linear-gradient(90deg, #3bc9f5, #228be6);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(56, 189, 248, 0.25);
+  transition: all 0.3s ease-in-out;
+  margin-right: 12px;
+}
+
+.excel-action-link:hover {
+  background: linear-gradient(90deg, #4dd0ff, #1e7fe6);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
+}
+
+.excel-action-link:active {
+  transform: scale(0.96);
+  box-shadow: 0 3px 8px rgba(56, 189, 248, 0.35);
+}
+
+.excel-action-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.4);
+}

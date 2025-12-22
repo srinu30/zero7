@@ -1,0 +1,389 @@
+/* ================= Base ================= */
+.digital-courses-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px 15px; 
+  background: #f9fafc;
+  color: #333;
+}
+
+.course-section {
+  text-align: center;
+  margin-bottom: -60px; 
+}
+
+.course-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0d47a1;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ================= Filter Buttons ================= */
+.filter-buttons {
+  margin: 10px 0; 
+  display: flex;
+  justify-content: center;
+  gap: 8px; 
+  flex-wrap: wrap; /* Wrap on smaller screens */
+}
+
+.filter-btn {
+  padding: 8px 16px; 
+  border: 2px solid #0d47a1;
+  border-radius: 30px;
+  background: transparent;
+  color: #0d47a1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #0d47a1;
+  color: #fff;
+}
+
+/* ================= Course Grid ================= */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px; 
+  margin-top: 15px;
+}
+
+.course-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-6px); 
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* ================= Card Main ================= */
+.course-main {
+  padding: 15px; 
+}
+
+.course-icon {
+  font-size: 1.8rem; 
+  color: #1565c0;
+  margin-bottom: 10px;
+}
+
+.course-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.course-card .desc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+  min-height: 35px;
+}
+
+/* ================= Rating ================= */
+.rating-container {
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px; 
+  gap: 4px;
+}
+
+.star-rating .star {
+  font-size: 0.95rem;
+  color: #fbc02d;
+}
+
+.star-rating .rating-value {
+  font-size: 0.85rem;
+  margin-left: 3px;
+  color: #333;
+}
+
+.reviews {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* ================= Price ================= */
+.course-footer {
+  margin-top: 6px; 
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.current-price {
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+.original-price {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* ================= Badge ================= */
+.bestseller-badge {
+  display: inline-block;
+  background: #ff9800;
+  color: #fff;
+  padding: 3px 8px; 
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 12px;
+  margin-top: 6px;
+}
+
+/* ================= Hover Info ================= */
+.course-hover-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 15px; 
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px); 
+  transition: all 0.4s ease;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.course-card:hover .course-hover-info {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.course-hover-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.bestseller-updated {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px; 
+}
+
+.updated-text {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* ================= Meta Info ================= */
+.course-meta {
+  display: flex;
+  gap: 10px; 
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px; 
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.meta-item .icon {
+  color: #1565c0;
+}
+
+/* ================= Learning Objectives ================= */
+.learning-objectives h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.learning-objectives ul {
+  padding-left: 15px; 
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.learning-objectives li {
+  margin-bottom: 4px;
+}
+
+/* ================= Hover Footer ================= */
+.hover-footer {
+  margin-top: 10px; 
+  text-align: center;
+}
+
+.add-to-cart-btn {
+  padding: 8px 16px; 
+  background: #0d47a1;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: #1565c0;
+}
+
+/* ================= Inline Buy Form ================= */
+.buy-form {
+  margin-top: 12px;
+  background: #f5f9ff;
+  border: 1px solid #d0e2ff;
+  border-radius: 12px;
+  padding: 12px;
+  display: none; /* Hidden by default */
+  animation: slideDown 0.4s ease forwards;
+}
+
+.buy-form.active {
+  display: block;
+}
+
+.buy-form label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0d47a1;
+  margin-bottom: 4px;
+}
+
+.buy-form input,
+.buy-form select {
+  width: 100%;
+  padding: 7px 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.buy-form input:focus,
+.buy-form select:focus {
+  border-color: #0d47a1;
+  outline: none;
+}
+
+.buy-form .submit-btn {
+  background: #0d47a1;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.buy-form .submit-btn:hover {
+  background: #1565c0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= Responsive ================= */
+@media screen and (max-width: 1024px) {
+  .course-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .course-section h2 {
+    font-size: 1.8rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .course-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .filter-buttons {
+    gap: 6px;
+  }
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  .course-card h3 {
+    font-size: 1rem;
+  }
+  .course-card .desc {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .course-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .filter-buttons {
+    gap: 4px;
+  }
+  .filter-btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  .course-section h2 {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  .course-card h3 {
+    font-size: 0.95rem;
+  }
+  .course-card .desc {
+    font-size: 0.75rem;
+  }
+  .course-main {
+    padding: 10px;
+  }
+  .add-to-cart-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}

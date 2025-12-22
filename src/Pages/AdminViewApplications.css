@@ -1,0 +1,107 @@
+/* AdminViewApplications.css */
+
+.admin-applications {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px;
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+.applications-table thead {
+  background-color: #4dabea; /* A pleasant green */
+  color: white;
+}
+
+.applications-table th,
+.applications-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.applications-table th {
+  font-weight: bold;
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+
+.applications-table tbody tr {
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.applications-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.applications-table tbody tr:hover {
+  background-color: #cad4e2;
+  transform: translateY(-2px); /* Slightly lift the row */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on hover */
+}
+
+.applications-table td a {
+  color: #3498db; /* Blue for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.applications-table td a:hover {
+  color: #2980b9; /* Darker blue on hover */
+  text-decoration: underline;
+}
+
+/* Loading Spinner */
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px; /* Give some space for the spinner */
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #4caf50; /* Green spinner */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* No applications message styling */
+.applications-table tbody tr td[colSpan='9'] {
+  text-align: center;
+  padding: 30px;
+  font-style: italic;
+  color: #777;
+}
+
+/* Error message styling */

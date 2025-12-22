@@ -1,0 +1,438 @@
+/* CampusHiring.css — full stylesheet */
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+/* color tokens */
+:root {
+  --campus-navy: #0b1f3a;
+  --campus-blue: #0d47a1;
+  --campus-royal: #2b63d9;
+  --campus-cyan: #29b6f6;
+
+  --campus-ink: #212734;
+  --campus-body: #3a4656;
+  --campus-bg: #f5f8fe;
+  --campus-card: #ffffff;
+
+  --ink-soft: #4b5666;
+  --sky-25: #f7fbff;
+  --sky-50: #f0f6ff;
+  --border: #e6ecf5;
+  --ring: #b6d8ff;
+}
+
+/* base */
+.campus-page {
+  background: var(--campus-bg);
+  color: var(--campus-body);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  line-height: 1.6;
+}
+.campus-page a:focus-visible,
+.campus-page button:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* buttons */
+.campus-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease,
+    color 0.22s ease;
+}
+.campus-btn:hover {
+  transform: translateY(-2px);
+}
+.campus-btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #2b63d9, #29b6f6);
+  box-shadow: 0 10px 26px rgba(43, 99, 217, 0.22);
+}
+.campus-btn-outline {
+  color: #1f4fbf;
+  background: #fff;
+  border-color: #cfe0ff;
+}
+.campus-btn-outline:hover {
+  background: #f2f7ff;
+}
+
+/* ---------- HERO ---------- */
+.campus-hero {
+  position: relative;
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  overflow: clip;
+}
+.campus-hero-media {
+  position: absolute;
+  inset: 0;
+  /* 👇 career fair / placement interaction; swap this URL anytime */
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1) contrast(1.02);
+}
+.campus-hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* neutral (non-blue) overlay so colors stay true */
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.18));
+}
+.campus-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 4rem 1.25rem 3rem;
+  color: #eaf4ff;
+  max-width: 1024px;
+}
+.campus-hero-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  line-height: 1.12;
+}
+.campus-hero-tagline {
+  font-size: clamp(1rem, 2.2vw, 1.18rem);
+  opacity: 0.98;
+  color: #f2f7ff;
+  margin-bottom: 1.5rem;
+}
+.campus-hero-ctas {
+  display: inline-flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* trust badges */
+.campus-trust-badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+.campus-badge {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #e5f6ff;
+  background: rgba(41, 182, 246, 0.12);
+  border: 1px solid rgba(41, 182, 246, 0.25);
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+}
+.campus-badge svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- SECTIONS ---------- */
+.campus-section {
+  padding: 3rem 1rem;
+}
+.campus-section-title {
+  max-width: 1100px;
+  margin: 0 auto 1rem;
+  color: var(--campus-ink);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+}
+
+/* ---------- CARD GRID ---------- */
+.campus-card-grid {
+  max-width: 1100px;
+  margin: 1rem auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 700px) {
+  .campus-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1025px) {
+  .campus-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.campus-card {
+  background: var(--campus-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(12, 27, 51, 0.06);
+  display: grid;
+  grid-template-rows: 190px auto;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.campus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(12, 27, 51, 0.12);
+}
+.campus-card-media {
+  background-size: cover;
+  background-position: center;
+}
+
+.campus-card-body {
+  padding: 1.15rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.campus-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.campus-card-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #2b63d9, #29b6f6);
+  box-shadow: 0 6px 16px rgba(43, 99, 217, 0.28);
+}
+.campus-card-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--campus-ink);
+}
+.campus-card-copy {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.campus-card-checks {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.campus-card-checks li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0.5rem;
+  align-items: start;
+  color: var(--campus-body);
+  font-size: 0.93rem;
+}
+.campus-card-checks svg {
+  color: var(--campus-royal);
+  margin-top: 1px;
+}
+
+.campus-badge-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef4ff;
+  color: #1f4fbf;
+  border: 1px solid #d6e6ff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.campus-link {
+  color: #2457d1;
+  font-weight: 700;
+  text-decoration: none;
+}
+.campus-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- PROCESS STRIP ---------- */
+.campus-process {
+  padding: 3rem 1rem;
+  background: linear-gradient(180deg, #fff, var(--sky-50));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.campus-process-title {
+  text-align: center;
+  color: var(--campus-ink);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  margin-bottom: 1.25rem;
+}
+.campus-timeline {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 700px) {
+  .campus-timeline {
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+  }
+  .campus-timeline::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 2%;
+    right: 2%;
+    height: 3px;
+    background: linear-gradient(90deg, #cfe0ff, #bfe7ff);
+    border-radius: 3px;
+  }
+}
+.campus-timeline-step {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+  text-align: center;
+}
+.campus-timeline-node {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #eef4ff;
+  border: 1px solid #d9e6ff;
+  color: #1f4fbf;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(31, 79, 191, 0.12);
+}
+.campus-timeline-label {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- LOGO MARQUEE (one row, left -> right) ---------- */
+.campus-logos {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0; /* thin strip */
+}
+.marquee-viewport {
+  position: relative;
+  overflow: hidden;
+  /* subtle edge fade so logos appear to emerge */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 0;
+  width: max-content;
+  will-change: transform;
+}
+.marquee-right {
+  animation: marquee-right 28s linear infinite;
+}
+
+/* Move right continuously. We duplicated the logos array, so
+   moving from -50% -> 50% will slide the first copy fully out
+   of the viewport while bringing the duplicated copy into place,
+   creating a seamless loop. */
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.marquee-logo {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #f9fbff;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(12, 27, 51, 0.05);
+}
+.marquee-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  filter: contrast(1.05) saturate(1.05);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.marquee-logo:hover .marquee-logo-img {
+  transform: translateY(-1px);
+  filter: contrast(1.1) saturate(1.15);
+}
+
+@media (max-width: 600px) {
+  .marquee-track {
+    gap: 16px;
+    padding: 10px 0;
+  }
+  .marquee-logo-img {
+    height: 28px;
+  }
+}
+
+/* ---------- RESPONSIVE TWEAKS ---------- */
+@media (max-width: 1024px) {
+  .campus-hero {
+    min-height: 64vh;
+  }
+  .campus-card {
+    grid-template-rows: 170px auto;
+  }
+}
+@media (max-width: 600px) {
+  .campus-hero {
+    min-height: 60vh;
+  }
+  .campus-card {
+    grid-template-rows: 150px auto;
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .campus-btn,
+  .campus-card,
+  .campus-hero-overlay,
+  .marquee-right {
+    transition: none !important;
+    animation: none !important;
+  }
+}

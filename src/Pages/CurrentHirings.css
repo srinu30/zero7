@@ -1,0 +1,334 @@
+/* --- Variables & Reset --- */
+:root {
+  --primary: #3b82f6; 
+  --primary-dark: #2563eb;
+  --text-main: #1e293b;
+  --text-light: #64748b;
+  --font-main: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif; 
+  --radius: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: #f8fafc;
+  color: var(--text-main);
+}
+
+.modern-hiring-page {
+  background: #f8fafc;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* --- 1. HERO SECTION --- */
+.hero-section {
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; 
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 10;
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text-container {
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; 
+}
+
+.title-part { display: inline-block; }
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #e2e8f0; 
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- MAGNETIC BUTTON --- */
+.cta-button {
+  background: #ffffff; 
+  color: var(--text-main);
+  border: none;
+  padding: 16px 36px;
+  font-size: 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
+.cta-button:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+}
+
+/* --- 2. INTRO SECTION --- */
+.intro-section {
+  text-align: center;
+  padding: 80px 20px 60px; /* More top padding */
+  max-width: 800px;
+  margin: 0 auto;
+}
+.pill-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1e293b;
+  margin-bottom: 20px;
+  background: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+.sparkle-icon { color: #f59e0b; }
+.intro-text {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* --- 3. PREMIUM PROCESS SECTION --- */
+.process-section {
+  padding: 20px 20px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.serif-title {
+  font-family: var(--font-serif); 
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.title-underline {
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #818cf8);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Container for Line + Cards */
+.process-container {
+  position: relative;
+}
+
+/* The Connecting Dashed Line */
+.connecting-line {
+  position: absolute;
+  top: 100px; /* Aligned with icon center roughly */
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-image: linear-gradient(90deg, #cbd5e1 50%, transparent 50%);
+  background-size: 20px 100%;
+  z-index: 0;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- THE PREMIUM CARD --- */
+.process-card {
+  background: #ffffff;
+  padding: 40px 30px 50px;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* For the glow effect */
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+  cursor: default;
+}
+
+/* Gradient Mesh Overlay on Hover */
+.card-gradient-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.process-card:hover .card-gradient-overlay {
+  opacity: 1;
+}
+
+/* Huge Background Number */
+.big-number {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #f1f5f9;
+  z-index: 0;
+  line-height: 1;
+  font-family: var(--font-main);
+}
+
+/* Icon Container */
+.icon-circle {
+  width: 90px;
+  height: 90px;
+  background: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  color: #3b82f6;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  border: 4px solid white; /* Border creates gap from connecting line */
+}
+
+/* Card Content */
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.process-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.process-card p {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Dot on the timeline */
+.timeline-dot {
+  display: none; /* Hidden on desktop as icon acts as dot, visible on mobile maybe? */
+}
+
+/* --- Jobs Table Section --- */
+.jobs-section { padding: 40px 20px 80px; }
+.container { max-width: 1250px; margin: 0 auto; }
+.jobs-header { margin-bottom: 30px; text-align: left; }
+.jobs-header h2 { font-size: 1.8rem; font-weight: 700; color: #1e293b; text-transform: uppercase; letter-spacing: 0.5px; }
+.table-container { background: white; border-radius: var(--radius); border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); overflow-x: auto; }
+.modern-table { width: 100%; border-collapse: collapse; min-width: 1100px; }
+.modern-table th { text-align: left; padding: 24px; color: #3b82f6; background-color: #f8fafc; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; }
+.modern-table td { padding: 20px 24px; vertical-align: middle; border-bottom: 1px solid #f1f5f9; color: var(--text-main); font-size: 0.95rem; }
+.modern-table tr:last-child td { border-bottom: none; }
+.skills-cell { max-width: 220px; line-height: 1.5; font-size: 0.9rem; color: var(--text-light); }
+.font-medium { font-weight: 600; }
+.job-row { transition: background 0.2s; }
+.job-row:hover { background: #f8fafc; }
+.time-badge { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; color: var(--text-main); white-space: nowrap; }
+.align-right { text-align: right; }
+.action-btn { padding: 8px 24px; border-radius: 6px; border: none; font-weight: 500; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; }
+.btn-apply { background: linear-gradient(90deg, #4ea8de, #48bfe3); color: white; box-shadow: 0 2px 6px rgba(72, 191, 227, 0.3); }
+.btn-apply:hover { opacity: 0.9; transform: translateY(-1px); }
+.pagination-wrapper { padding: 20px; display: flex; justify-content: center; }
+
+/* --- MODAL STYLES --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-content { background: #ffffff; width: 100%; max-width: 750px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 40px; position: relative; max-height: 90vh; overflow-y: auto; }
+.modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+.modal-title-wrap { display: flex; align-items: center; gap: 15px; }
+.text-primary { color: var(--primary); }
+.modal-title { margin: 0; font-size: 1.4rem; color: #111; font-weight: 700; }
+.modal-subtitle { margin: 4px 0 0; font-size: 0.9rem; color: var(--text-light); }
+.close-icon-btn { background: transparent; border: none; cursor: pointer; color: #999; padding: 5px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.close-icon-btn:hover { color: #333; }
+.modal-form { display: flex; flex-direction: column; }
+.grid-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px; }
+.input-wrap { border: 1px solid #e2e8f0; border-radius: 8px; padding: 0 16px; height: 50px; display: flex; align-items: center; gap: 12px; transition: all 0.2s; background: #fff; }
+.input-wrap:focus-within { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.input-icon { color: #64748b; flex-shrink: 0; }
+.input-wrap input { border: none; outline: none; font-size: 0.95rem; width: 100%; color: var(--text-main); background: transparent; }
+.input-wrap input::placeholder { color: #94a3b8; }
+.full { grid-column: 1 / -1; }
+.modal-footer { display: flex; gap: 12px; justify-content: flex-end; }
+.submit-btn { background: #3b82f6; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: background 0.2s; }
+.submit-btn:hover { background: #2563eb; }
+.cancel-btn { background: #e2e8f0; color: #475569; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.95rem; transition: background 0.2s; }
+.cancel-btn:hover { background: #cbd5e1; }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+  .process-grid { grid-template-columns: 1fr; gap: 40px; }
+  .connecting-line { 
+    width: 2px; 
+    height: 100%; 
+    left: 50%; 
+    top: 0; 
+    bottom: 0;
+    background-image: linear-gradient(to bottom, #cbd5e1 50%, transparent 50%);
+    background-size: 100% 20px;
+  }
+  .hero-title { font-size: 2.5rem; flex-direction: column; gap: 5px; }
+}
+
+@media (max-width: 768px) {
+  .modern-table thead { display: none; }
+  .modern-table tr { display: block; margin-bottom: 20px; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
+  .modern-table td { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; text-align: right; border-bottom: 1px solid #f3f4f6; }
+  .grid-form { grid-template-columns: 1fr; gap: 12px; }
+  .modal-content { padding: 25px; margin: 15px; }
+}

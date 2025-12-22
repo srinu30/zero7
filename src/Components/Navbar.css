@@ -1,0 +1,239 @@
+.navbar {
+  background: #fff;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.navbar img{
+  width: 250px;
+  height: 80px;
+  background-color: white !important;
+}
+
+
+
+.logo-img {
+  height: 700px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 20px;
+}
+
+/* Mobile icon */
+.mobile-menu-icon {
+  display: none;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-icon:hover {
+  transform: rotate(90deg);
+}
+
+/* Nav menu desktop */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+/* nav links */
+.nav-links {
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 80px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.dropdown-icon,
+.submenu-icon {
+  margin-left: 5px;
+  font-size: 0.8rem;
+}
+
+/* underline animation */
+.nav-links::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #007bff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-links:hover {
+  color: #007bff;
+}
+
+.nav-links:hover::after {
+  transform: scaleX(1);
+}
+
+.active-link {
+  color: #007bff;
+}
+
+.active-link::after {
+  transform: scaleX(1);
+  background-color: #007bff;
+}
+
+/* dropdown menus desktop */
+.services-dropdown,
+.training-dropdown {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 200px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.services-dropdown.show,
+.training-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dropdown-link:hover {
+  color: #3498db;
+  background-color: #f4faff;
+  padding-left: 25px;
+}
+
+/* training dropdown alignment */
+.training-dropdown {
+  left: 100%;
+  top: 0;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 960px) {
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-links {
+    text-align: left;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .services-dropdown,
+  .training-dropdown {
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+
+  .services-item.open .services-dropdown {
+    max-height: 1000px;
+    padding: 10px 0;
+  }
+
+  .training-submenu.open .training-dropdown {
+    max-height: 500px;
+    padding: 10px 0;
+  }
+
+  .training-dropdown {
+    left: 0;
+    background-color: #e9ecef;
+  }
+
+  .dropdown-link {
+    padding: 10px 30px;
+  }
+}
+
+.nav-links svg {
+  font-size: 1.2rem; /* adjust size */
+  vertical-align: middle;
+}
+
+.nav-links:hover svg {
+  color: var(--accent);
+}
+
+.active-link svg {
+  color: var(--accent);
+}

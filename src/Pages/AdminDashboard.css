@@ -1,0 +1,9 @@
+.admin-main {
+  background-image: linear-gradient(135deg, #c4d8e91a 0%, #267edc 100%);
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

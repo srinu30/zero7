@@ -1,0 +1,264 @@
+/* General */
+.nonittraining-container {
+  background: #f0f7ff; /* very light blue */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+}
+
+/* Reset margins */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero with full width gradient */
+.nonit-hero {
+  width: 100%;
+  min-height: 350px;
+  background: linear-gradient(135deg, #000428, #004e92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 3rem 1rem;
+  margin: 0;
+}
+
+.nonit-hero-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nonit-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.nonit-hero-content p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section */
+.nonit-programs-section {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.section-heading {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #004080;
+}
+
+.section-subheading {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Grid */
+.nonit-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: stretch; /* ensures equal height cards */
+}
+
+/* Course Card */
+.nonit-course-card {
+  background: #fff;
+  border: 2px solid #dbeafe;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* button at bottom */
+  height: 100%; /* full height of grid cell */
+}
+
+.nonit-course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,50,0.15);
+  border-color: #3b82f6;
+}
+
+.nonit-course-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.nonit-course-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #003366;
+}
+
+.nonit-course-description {
+  color: #555;
+  margin: 0.5rem 0 1rem;
+}
+
+/* Learn More Button */
+.nonit-learn-more-btn {
+  background: linear-gradient(45deg, #007bff, #00c6ff);
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  align-self: center; /* center horizontally */
+  margin-top: auto; /* stick to bottom */
+}
+
+.nonit-learn-more-btn:hover {
+  background: linear-gradient(45deg, #0056b3, #0094cc);
+  transform: scale(1.05);
+}
+
+/* Expanded card wider */
+.nonit-course-card.expanded {
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
+  grid-column: 1 / -1;
+  animation: expandAnim 0.4s ease forwards;
+  height: auto; /* allow expand */
+}
+
+@keyframes expandAnim {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Accordion details */
+.nonit-course-details {
+  margin-top: 1rem;
+  text-align: center;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.nonit-course-card.expanded .nonit-course-details {
+  max-height: 400px;
+  opacity: 1;
+  padding-top: 1rem;
+  overflow-y: auto; /* scroll if needed */
+}
+
+/* Inner animation */
+.nonit-course-details p,
+.nonit-course-details h4,
+.nonit-course-details .tech-badge-container,
+.nonit-course-details .placement-info {
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.nonit-course-card.expanded .nonit-course-details p,
+.nonit-course-card.expanded .nonit-course-details h4,
+.nonit-course-card.expanded .nonit-course-details .tech-badge-container,
+.nonit-course-card.expanded .nonit-course-details .placement-info {
+  transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+/* Tech Badges with Gradients */
+.tech-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.nonit-tech-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.gradient-1 { background: linear-gradient(45deg, #ff6b6b, #ff8e53); }
+.gradient-2 { background: linear-gradient(45deg, #42e695, #3bb2b8); }
+.gradient-3 { background: linear-gradient(45deg, #4776e6, #8e54e9); }
+.gradient-4 { background: linear-gradient(45deg, #f7971e, #ffd200); }
+.gradient-5 { background: linear-gradient(45deg, #00c6ff, #0072ff); }
+.gradient-6 { background: linear-gradient(45deg, #ff512f, #dd2476); }
+
+/* Placement Assistance */
+.placement-info h4 {
+  margin-bottom: 0.5rem;
+  color: #003366;
+}
+
+.placement-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #444;
+  align-items: center;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nonit-hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .nonit-hero-content p {
+    font-size: 1rem;
+  }
+
+  .nonit-course-card.expanded {
+    max-width: 95%;
+  }
+
+  .nonit-courses-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nonit-course-card {
+    width: 95%;
+    max-width: 700px;
+  }
+
+  .nonit-course-card.expanded .nonit-course-details {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .placement-points {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .nonit-learn-more-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

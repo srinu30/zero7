@@ -1,0 +1,245 @@
+/* General Page Styling */
+.college-connect {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  height: 75vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* match hero height dynamically */
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero {
+    height: 65vh;
+  }
+  .hero-overlay h1 {
+    font-size: 2.2rem;
+  }
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 0 15px;
+  }
+  .hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+  .hero-overlay p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 55vh;
+    padding: 0 12px;
+  }
+  .hero-overlay h1 {
+    font-size: 1.5rem;
+  }
+  .hero-overlay p {
+    font-size: 0.85rem;
+  }
+}
+
+/* About Section */
+.about {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Features Section */
+.features {
+  padding: 60px 10%;
+  background: #f9fafc;
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-card h3 {
+  color: #0056b3;
+  margin-bottom: 12px;
+}
+
+/* Get Connected Section */
+.get-connected {
+  padding: 60px 10%;
+  text-align: center;
+}
+
+.btn-secondary {
+  background: #0056b3;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #003f88;
+  transform: scale(1.05);
+}
+
+/* Proposal Form */
+.proposal-form {
+  padding: 60px 10%;
+  background: #f4f7fb;
+}
+
+.proposal-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+form {
+  max-width: 700px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #0056b3;
+}
+
+textarea {
+  resize: none;
+  height: 120px;
+}
+
+
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff9800, #f44336);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #f44336, #ff9800);
+}
+
+.campus-timeline {
+  position: relative;
+  padding-top: 40px; /* Add space for icons above the line */
+}
+
+.campus-timeline::before {
+  content: '';
+  position: absolute;
+  top: 20px; /* Position the line below the icons */
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #3b82f6; /* Blue color */
+  z-index: 1;
+}
+
+.campus-timeline-node {
+  position: relative;
+  z-index: 2; /* Ensure icons appear above the line */
+  background: white; /* Add background to cover the line */
+  padding: 8px;
+  border-radius: 50%;
+}
+

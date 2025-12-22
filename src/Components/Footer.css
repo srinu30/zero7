@@ -1,0 +1,229 @@
+/* ================= FOOTER BASE ================= */
+.footer {
+  background: linear-gradient(135deg, #0d47a1, #1565c0, #1976d2);
+  color: #fff;
+  padding: 50px 20px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Company Info + Quick + Action + Subscribe */
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ================= COMPANY INFO ================= */
+.tagline {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 15px 0 10px;
+  color: #e3f2fd;
+  margin-top: 25px;
+}
+
+/* ================= SOCIAL ICONS ================= */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  width: 48px;
+  height: 48px;
+  background: #ffffff; /* dark base */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease;
+  color: #03a9f4;
+}
+
+/* icon inside */
+.social-icons a i {
+  font-size: 1.4rem;
+  color: #fff;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* subtle moving light strip */
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -100%;
+  background: linear-gradient(
+    45deg,
+    rgba(196, 196, 196, 0.1),
+    rgba(235, 235, 235, 0.05)
+  );
+  transform: rotate(25deg);
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.social-icons a:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* hover effects */
+.social-icons a:hover {
+  transform: translateY(-4px) scale(1.08);
+  background: #111; /* keep dark base so glow stands out */
+  animation: neonGlow 2s linear infinite;
+}
+
+/* icon enlarges slightly */
+.social-icons a:hover i {
+  transform: scale(1.2);
+}
+
+/* Neon glow animation */
+@keyframes neonGlow {
+  0% {
+    box-shadow: 0 0 8px #ff5722, 0 0 16px #ff9800, 0 0 24px #ff5722;
+  }
+  25% {
+    box-shadow: 0 0 8px #e91e63, 0 0 16px #9c27b0, 0 0 24px #e91e63;
+  }
+  50% {
+    box-shadow: 0 0 8px #03a9f4, 0 0 16px #00bcd4, 0 0 24px #03a9f4;
+  }
+  75% {
+    box-shadow: 0 0 8px #4caf50, 0 0 16px #8bc34a, 0 0 24px #4caf50;
+  }
+  100% {
+    box-shadow: 0 0 8px #ff5722, 0 0 16px #ff9800, 0 0 24px #ff5722;
+  }
+}
+
+/* ================= TITLES & LINKS ================= */
+.footer-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #fff;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #2196f3;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #e3f2fd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #64b5f6;
+  padding-left: 6px;
+}
+
+/* ================= SUBSCRIBE ================= */
+.subscribe-box {
+  display: flex;
+  margin-top: 15px;
+}
+
+.subscribe-box input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0e0e0e;
+}
+
+.send-btn {
+  background: #2196f3;
+  border: none;
+  padding: 0 16px;
+  border-radius: 0 4px 4px 0;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.send-btn:hover {
+  background: #1976d2;
+  transform: translateY(-1px);
+}
+
+/* ================= FOOTER BOTTOM ================= */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin-top: 40px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #bbdefb;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cols on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr; /* Stack everything */
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.success-msg {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.error-msg {
+  color: #ff3333;          /* bright red warning */
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: 600;
+  animation: shake 0.2s ease-in-out 2;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}

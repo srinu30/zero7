@@ -1,0 +1,170 @@
+/* General container styling */
+.view-enrollments-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  max-width: 100%;
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: #333;
+}
+
+/* Title styling */
+.enrollments-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.enrollments-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+/* Loading spinner */
+.loading-spinner, .error-message {
+  text-align: center !important;
+  padding: 30px;
+  font-size: 1.2em;
+  color: #555;
+  margin-left: 650px;
+}
+
+.loading-spinner {
+  color: #3498db;
+  font-weight: 500;
+}
+
+/* Error message */
+.error-message {
+  color: #e74c3c;
+  background-color: #fce4e4;
+  border: 1px solid #e74c3c;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+
+/* Table Wrapper for responsiveness and scroll */
+.table-wrapper {
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+  -webkit-overflow-scrolling: touch; /* Improves scrolling on iOS */
+  border: 1px solid #ecf0f1;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+}
+
+/* Table styling */
+.enrollments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  min-width: 700px; /* Ensure table doesn't get too squished on small screens */
+}
+
+.enrollments-table th,
+.enrollments-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 0.95em;
+}
+
+.enrollments-table th {
+  background-color: #3498db;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky; /* Keep header visible on scroll */
+  top: 0;
+  z-index: 10; /* Ensure header is above rows */
+}
+
+/* Table row alternating colors */
+.enrollments-table tbody tr.even-row {
+  background-color: #f9fbfd;
+}
+
+.enrollments-table tbody tr.odd-row {
+  background-color: #ffffff;
+}
+
+.enrollments-table tbody tr:hover {
+  background-color: #e8f4fb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Link styling for resume */
+.resume-link {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.resume-link:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+/* No enrollments message */
+.no-enrollments {
+  text-align: center;
+  font-style: italic;
+  color: #7f8c8d;
+  padding: 30px !important;
+  background-color: #fdfdfd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .view-enrollments-container {
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .enrollments-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .enrollments-table th,
+  .enrollments-table td {
+    padding: 12px 15px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .view-enrollments-container {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .enrollments-title {
+    font-size: 1.5em;
+  }
+
+  .enrollments-table th,
+  .enrollments-table td {
+    padding: 10px 12px;
+    font-size: 0.85em;
+  }
+}

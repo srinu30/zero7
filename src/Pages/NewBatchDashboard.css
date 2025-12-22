@@ -1,0 +1,267 @@
+/* ===== Dashboard Container ===== */
+.dashboard-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, #e0f7fa, #fff3e0);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Headings ===== */
+.dashboard-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1d4ed8; /* Bright Blue */
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.dashboard-container h3 {
+  font-size: 1.4rem;
+  color: #7e22ce; /* Vibrant Purple */
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* ===== Form Card ===== */
+.form-card {
+  background: #fff8f0; /* Slight cream */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  margin-bottom: 2rem;
+  border: 2px solid #facc15; /* Golden border */
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media(min-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.form-card input,
+.form-card select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #fbbf24; /* Amber border */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+  outline: none;
+  border-color: #f97316; /* Orange focus */
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+/* ===== Add Button ===== */
+.add-btn {
+  background: linear-gradient(90deg, #f59e0b, #ef4444); /* Orange to Red gradient */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* ===== Table Card ===== */
+.table-card {
+  background: #f0f9ff; /* Light Blue */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border: 2px solid #3b82f6; /* Blue border */
+  overflow-x: auto;
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table-card th,
+.table-card td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #93c5fd; /* Light Blue border */
+  text-align: left;
+}
+
+.table-card thead {
+  background: linear-gradient(90deg, #bfdbfe, #fde68a); /* Light Blue to Yellow */
+  color: #1e3a8a; /* Dark Blue text */
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.table-card tbody tr:hover {
+  background: #dbeafe; /* Slight hover effect */
+}
+
+/* ===== Demo Badge ===== */
+.demo-yes {
+  color: #16a34a;
+  font-weight: 600;
+  background: #bbf7d0; /* Bright Green background */
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.demo-no {
+  color: #b91c1c;
+  font-weight: 600;
+  background: #fecaca; /* Bright Red background */
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+/* ===== Table Card ===== */
+.table-card {
+  background: #f0f9ff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  border: 2px solid #3b82f6;
+  overflow-x: auto;
+}
+
+/* Animation for new rows */
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table-card th,
+.table-card td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #93c5fd;
+  text-align: left;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.table-card thead {
+  background: linear-gradient(90deg, #bfdbfe, #fde68a);
+  color: #1e3a8a;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.table-card tbody tr {
+  animation: fadeInSlide 0.5s ease forwards; /* Add animation to rows */
+}
+
+.table-card tbody tr:hover {
+  background: #dbeafe;
+  transform: scale(1.01);
+}
+
+/* ===== Demo Badge ===== */
+.demo-yes {
+  color: #16a34a;
+  font-weight: 600;
+  background: #bbf7d0;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.demo-yes:hover {
+  transform: scale(1.1);
+}
+
+.demo-no {
+  color: #b91c1c;
+  font-weight: 600;
+  background: #fecaca;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.demo-no:hover {
+  transform: scale(1.1);
+}
+/* Add these styles to your existing NewBatchDashboard.css file */
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-header h3 {
+    margin: 0;
+}
+
+.table-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.import-btn,
+.export-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.import-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.import-btn:hover {
+    background-color: #218838;
+}
+
+.export-btn {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.export-btn:hover {
+    background-color: #138496;
+}

@@ -1,0 +1,234 @@
+/* File: src/Components/AdminSidebar.css (Corrected) */
+
+.admin-sidebar {
+  /* --- THE FIX IS HERE: Added fixed positioning --- */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 50; /* Ensure it's above other content */
+
+  background: #fff;
+  color: #020817;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  width: 16rem; /* 256px */
+  transition: width 0.3s ease-in-out;
+}
+
+/* === COLLAPSED STATE (ICON-ONLY VIEW) === */
+.admin-sidebar.collapsed {
+  width: 5rem; /* 80px */
+}
+
+.admin-sidebar.collapsed .logo-side-name,
+.admin-sidebar.collapsed .link-text,
+.admin-sidebar.collapsed .dropdown-arrow {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.admin-sidebar.collapsed .admin-sidebar-header {
+  padding: 20px 10px;
+  justify-content: center;
+}
+
+.admin-sidebar.collapsed .sidebar-link {
+  justify-content: center;
+  padding: 12px;
+}
+
+.admin-sidebar.collapsed .dashboard-icon {
+  gap: 0;
+}
+
+.admin-sidebar.collapsed .dashboard-cont {
+  justify-content: center;
+}
+
+.admin-sidebar.collapsed .logout-btn span {
+  display: none;
+}
+
+.admin-sidebar.collapsed .logout-btn {
+  width: 60%;
+}
+
+/* === TOOLTIP ON COLLAPSED VIEW === */
+.admin-sidebar.collapsed .sidebar-link {
+  position: relative;
+}
+
+.admin-sidebar.collapsed .sidebar-link[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 15px;
+  background-color: #1f2937;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease 0.1s;
+}
+
+.admin-sidebar.collapsed .sidebar-link[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* === GENERAL STYLES === */
+.admin-sidebar-header {
+  padding: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: padding 0.3s ease-in-out;
+}
+
+.logo-img {
+  /* width: 35px; */
+  height: 35px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+.logo-img img {
+  width: 120px;
+  height: 55px;
+  margin-left: 30px;
+}
+.logo-img span {
+  font-size: 18px;
+  color: #fff;
+}
+
+.logo-side-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: opacity 0.2s ease, width 0.2s ease;
+}
+.logo-side-name .head-name {
+  color: #020817;
+  font-size: 16px;
+}
+.logo-side-name .head-panel {
+  font-size: 12px;
+  color: #6474bb;
+  font-weight: 400;
+}
+
+.link-text {
+  transition: opacity 0.2s ease, width 0.2s ease;
+}
+
+.dashboard-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.dashboard-icon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #020817;
+  font-size: 15px;
+  margin-bottom: 4px;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  width: 100%;
+}
+.sidebar-link:hover {
+  background: #f0f5ff;
+}
+.sidebar-link.active {
+  color: #267edc;
+  font-weight: 500;
+  background: #eef4ff;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+  margin-left: 12px;
+  animation: slideDown 0.3s ease forwards;
+}
+.submenu .sidebar-link {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+.dropdown-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.notification-badge {
+  background-color: #dc2626;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.logout-btn {
+  margin: 0 auto 40px auto;
+  padding: 12px;
+  width: 80%;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.logout-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,116 @@
+.admin-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.admin-form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.admin-form h2 {
+  margin-bottom: 15px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+textarea {
+  grid-column: span 2;
+  min-height: 80px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  margin-top: 15px;
+}
+
+.btn-edit {
+  background: #ffc107;
+  color: #000;
+}
+
+.btn-delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.section-heading {
+  margin: 20px 0;
+  font-size: 22px;
+}
+
+.programs-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.program-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.program-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.program-icon {
+  font-size: 24px;
+}
+
+.program-price {
+  font-weight: bold;
+  color: #007bff;
+  margin: 8px 0;
+}
+
+.program-desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.program-tech {
+  font-size: 13px;
+  color: #444;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}

@@ -1,0 +1,25 @@
+/* App.css - Add these rules */
+.App {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.content {
+  flex: 1;
+  margin: 0;
+  width: 100%;
+  max-width: 100%; /* instead of 1200px */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.service-page {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}

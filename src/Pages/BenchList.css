@@ -1,0 +1,631 @@
+/* ===========================
+   GLOBAL RESET
+=========================== */
+.bench-page {
+  font-family: 'Poppins', sans-serif;
+  color: #333; /* Dark text to ensure visibility against white backgrounds */
+  line-height: 1.6;
+  background: #f8fbff;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+/* ===========================
+   HERO SECTION - VISUAL FIX (Darker Overlay)
+=========================== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-section .hero-image {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Darker overlay for better text contrast */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.hero-section .overlay {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+  max-width: 900px;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: #f0f0f0;
+}
+
+.view-openings-btn {
+  background: white;
+  color: #0f62fe;
+  padding: 15px 35px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.view-openings-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.ticker {
+  animation: scroll 15s linear infinite;
+  white-space: nowrap;
+}
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+/* ===========================
+   POPUP FORM - FIXED VISIBILITY & PADDING
+=========================== */
+.popup-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7); /* Darker dim */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top to allow scrolling on small screens */
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 40px 10px;
+}
+
+.popup-form {
+  background: #ffffff;
+  padding: 40px;
+  max-width: 650px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  text-align: left;
+}
+
+.popup-form h2 {
+  font-size: 1.8rem;
+  color: #0f62fe;
+  margin-bottom: 5px;
+}
+
+.form-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+/* INPUT CONTAINER */
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* THE ICON - ABSOLUTE POSITIONED LEFT */
+.icon-left {
+  position: absolute;
+  left: 18px; /* Fixed distance from left */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555; /* Visible dark grey */
+  font-size: 1.1rem;
+  z-index: 10; /* Above the input */
+  pointer-events: none; /* Click goes through to input */
+}
+
+/* THE INPUT - PADDING FIX (Solves text overlap) */
+.popup-form input[type='text'],
+.popup-form input[type='email'],
+.popup-form input[type='url'],
+.popup-form input[type='tel'],
+.popup-form input[type='number'],
+.popup-form select {
+  width: 100%;
+  /* CRITICAL: Padding left 50px creates space for the icon */
+  padding: 14px 14px 14px 50px !important; 
+  border: 1px solid #ccc; /* Visible border */
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #ffffff; /* White bg */
+  color: #222; /* Very dark text for visibility */
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* Darker Placeholder Text for visibility */
+.popup-form input::placeholder,
+.popup-form textarea::placeholder {
+  color: #777; /* Visible grey */
+  opacity: 1;
+}
+
+.popup-form input:focus,
+.popup-form textarea:focus {
+  border-color: #0f62fe;
+  box-shadow: 0 0 0 4px rgba(15, 98, 254, 0.1);
+  background-color: #fff;
+}
+
+/* Textarea doesn't have an icon usually, so normal padding */
+.popup-form textarea {
+  width: 100%;
+  padding: 14px !important;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #222;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+/* Form Row for side-by-side inputs */
+.form-row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+.form-group.half {
+  flex: 1;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, #0f62fe, #00bfff);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 2;
+  transition: opacity 0.2s;
+}
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.btn-cancel {
+  background: #e2e8f0;
+  color: #333;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+.btn-cancel:hover {
+  background: #cbd5e1;
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #444;
+  margin: 15px 0;
+  cursor: pointer;
+}
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+/* ===========================
+   STATS & CARDS (WITH BG IMAGES)
+=========================== */
+.stats-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  padding: 40px 20px;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 250px;
+  /* Use flex to center content vertically/horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px; /* More padding for height */
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Clips the image so it doesn't spill out */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+  
+  /* Background Image Settings */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Text Color defaults to white for dark images */
+  color: #fff;
+}
+
+/* THE DARK OVERLAY (To make text readable) */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Gradient from dark black to transparent blue */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(15, 98, 254, 0.85));
+  z-index: 1; /* Sit above image */
+  transition: background 0.4s ease;
+}
+
+/* Hover Animation */
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Brighten overlay on hover */
+.stat-card:hover::before {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(15, 98, 254, 0.95));
+}
+
+/* Wrapper to ensure content sits ON TOP of the overlay */
+.stat-content {
+  position: relative;
+  z-index: 2; 
+}
+
+/* Icon Styling - Glassmorphism effect */
+.stat-icon {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  backdrop-filter: blur(5px);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-card h2 {
+  color: #fff;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 10px 0;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.stat-card p {
+  color: #e0e7ff; /* Light blue-white text */
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Flip Cards */
+.info-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.flip-card {
+  width: 280px;
+  height: 220px;
+  perspective: 1000px;
+}
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.flip-card-front {
+  background: #3b82f6;
+  color: white;
+}
+.flip-card-front img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: 12px; opacity: 0.6; position: absolute;
+}
+.flip-card-front h3 {
+  z-index: 1; position: relative; font-size: 1.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.flip-card-back {
+  background: #fff;
+  color: #333;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+/* ===========================
+   CANDIDATES TABLE
+=========================== */
+.candidate-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.candidate-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 700px;
+}
+.candidate-table th {
+  background: #0f62fe;
+  color: white;
+  padding: 16px;
+  text-align: left;
+}
+.candidate-table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+.candidate-table tr:hover { background: #f1f5f9; }
+
+/* ===========================
+   ENROLLMENT FORM & TABLE
+=========================== */
+.form-section {
+  background: #f9fafc;
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 50px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+.form-section h2 { text-align: center; margin-bottom: 30px; }
+
+.enrollment-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+.enrollment-form input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.enrollment-form button {
+  background: linear-gradient(135deg, #0f62fe, #00bfff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  padding: 14px;
+}
+
+/* ===========================
+   PROCESS SECTION (INTERACTIVE)
+=========================== */
+.process-section {
+  text-align: center;
+  padding: 60px 20px 80px 20px;
+  background-color: #f8fbff;
+}
+
+.process-section h2 {
+  margin-bottom: 50px;
+  font-family: serif;
+  font-style: italic;
+  font-size: 2.5rem;
+  color: #1e293b;
+}
+
+.process-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-card {
+  flex: 1;
+  min-width: 220px;
+  background: #ffffff;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  
+  /* Initial Border (Transparent so layout doesn't jump) */
+  border: 2px solid transparent; 
+}
+
+/* HOVER STATE */
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* CLICKED / ACTIVE STATE */
+.process-card.active {
+  /* This puts the "Background Color" on the border */
+  border-color: #0f62fe; 
+  background-color: #f0f7ff; /* Optional: Very light blue tint inside */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(15, 98, 254, 0.15);
+}
+
+/* Icon Bubble Styling */
+.icon-bubble {
+  width: 70px;
+  height: 70px;
+  background: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  color: #3b82f6;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+/* Make icon pop when active */
+.process-card.active .icon-bubble {
+  background: #0f62fe;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.process-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.process-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+/* ===========================
+   FAQ
+=========================== */
+.faq {
+  max-width: 800px;
+  margin: auto;
+}
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+.faq-question {
+  background: linear-gradient(45deg, #0f62fe, #00bfff);
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+.faq-question:hover {
+  opacity: 0.9;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: white;
+  padding: 0 12px;
+  border-radius: 8px;
+}
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  margin-top: 10px;
+  padding: 12px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (min-width: 768px) {
+  .enrollment-form { grid-template-columns: 1fr 1fr; }
+  .enrollment-form button { grid-column: span 2; }
+  .form-row { flex-direction: row; }
+}
+
+@media (max-width: 768px) {
+  .popup-form {
+    padding: 20px;
+  }
+  .form-row { flex-direction: column; gap: 0; }
+  .hero-section h1 { font-size: 2.5rem; }
+  .btn-gradient, .btn-cancel { width: 100%; }
+  .form-actions { flex-direction: column; }
+}
