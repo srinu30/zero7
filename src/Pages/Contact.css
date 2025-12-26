@@ -205,3 +205,699 @@ body {
     padding: 20px;
   }
 }
+
+.contact-container {
+  padding: 60px 80px;
+  background: #f9fafb;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* LEFT SIDE */
+.contact-details {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.contact-info {
+  margin-bottom: 25px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #444;
+}
+
+.contact-item i {
+  color: #2563eb;
+  margin-top: 4px;
+}
+
+/* MAP */
+.map-container {
+  width: 100%;
+  height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* RIGHT SIDE FORM */
+.inquiry-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.inquiry-form h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 12px;
+  font-size: 14px;
+  color: green;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    height: 240px;
+  }
+}
+
+.contact-wrapper {
+  padding: 70px 80px;
+  background: #f4f7fb;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.contact-header p {
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+}
+
+/* LEFT CARD */
+.contact-card,
+.form-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.contact-card h2,
+.form-card h2 {
+  font-size: 22px;
+  margin-bottom: 22px;
+  color: #111827;
+}
+
+.contact-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.contact-row i {
+  color: #2563eb;
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+/* MAP */
+.map-box {
+  margin-top: 20px;
+  height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* FORM */
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.form-card button {
+  margin-top: 10px;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 8px;
+  font-size: 14px;
+  color: green;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-wrapper {
+    padding: 40px 20px;
+  }
+}
+
+/* ================================
+   1. KEYFRAMES
+================================ */
+
+/* Smooth slide up with fade */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Width expansion for the blue separator lines */
+@keyframes expandLine {
+  from { width: 0; opacity: 0; }
+  to { width: 50px; opacity: 1; } /* Adjust 50px to match your design */
+}
+
+/* Subtle pulse for the CTA button */
+@keyframes softPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+/* ================================
+   2. PAGE ENTRANCE (STAGGERED)
+================================ */
+
+/* Main Header "Let's Connect" */
+.section-header {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* The Left Card (Contact Details) */
+.contact-details-card {
+  opacity: 0; /* Hidden initially */
+  animation: fadeInUp 0.8s ease-out 0.2s forwards; /* 0.2s delay */
+}
+
+/* The Right Card (Quick Inquiry Form) */
+.inquiry-form-card {
+  opacity: 0; 
+  animation: fadeInUp 0.8s ease-out 0.4s forwards; /* 0.4s delay */
+}
+
+/* The Blue Underlines (Separators) */
+.separator-line {
+  animation: expandLine 1s ease-out 0.6s forwards;
+}
+
+/* ================================
+   3. CARD INTERACTIONS
+================================ */
+
+.contact-details-card,
+.inquiry-form-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* Hover Effect: Gentle lift with a soft shadow spread */
+.contact-details-card:hover,
+.inquiry-form-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================
+   4. INNER CONTENT & ICONS
+================================ */
+
+/* Icons in the left card (Phone, Email, Map Pin) */
+.contact-icon-wrapper {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact-row:hover .contact-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  background-color: #eff6ff; /* Light blue tint on hover */
+}
+
+/* Contact Links (Phone/Email text) */
+.contact-text a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.contact-text a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #2563eb; /* Blue */
+  transition: width 0.3s ease;
+}
+
+.contact-text a:hover::after {
+  width: 100%;
+}
+
+/* ================================
+   5. FORM ELEMENTS (Micro-interactions)
+================================ */
+
+/* Input Fields */
+input.form-control,
+select.form-control,
+textarea.form-control {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+/* Focus State: Border color + Slight expansion + Shadow ring */
+input.form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+  transform: translateY(-2px);
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* ================================
+   6. BUTTON & MAP
+================================ */
+
+/* Send Message Button */
+.btn-submit {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Add a sheen effect on hover */
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-submit:hover::before {
+  left: 100%; /* Sweeps the light across the button */
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+/* Google Map Embed */
+.map-container iframe {
+  transition: filter 0.3s ease, transform 0.5s ease;
+  filter: grayscale(20%); /* Slightly desaturated initially */
+  border-radius: 8px; /* Ensure map corners match design */
+}
+
+.map-container:hover iframe {
+  filter: grayscale(0%); /* Full color on hover */
+  transform: scale(1.02);
+}
+
+/* ========================
+   1. LAYOUT & TYPOGRAPHY
+======================== */
+.contact-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc; /* Light grey background for contrast */
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  animation: fadeInDown 0.8s ease;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.header-line {
+  width: 60px;
+  height: 4px;
+  background-color: #2563eb; /* Brand Blue */
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+
+.contact-header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Grid Layout for Side-by-Side */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ========================
+   2. CARD STYLES & ANIMATION
+   (The Tech Glow Effect)
+======================== */
+.contact-card,
+.form-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  
+  /* ANIMATION PROPERTIES */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-bottom: 4px solid transparent; /* Invisible initially */
+  position: relative;
+  top: 0;
+}
+
+/* HOVER EFFECT: Lift + Blue Border + Glow */
+.contact-card:hover,
+.form-card:hover {
+  transform: translateY(-10px); /* Moves up */
+  border-bottom: 4px solid #2563eb; /* Blue line appears */
+  box-shadow: 0 20px 40px -5px rgba(37, 99, 235, 0.15); /* Blue glow */
+}
+
+.contact-card h2,
+.form-card h2 {
+  color: #1e293b;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.card-line {
+  width: 40px;
+  height: 3px;
+  background-color: #2563eb;
+  margin-bottom: 2rem;
+}
+
+/* ========================
+   3. CONTACT DETAILS ANIMATION
+======================== */
+.contact-rows-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: default;
+}
+
+/* Slide Right Effect on Row Hover */
+.contact-row:hover {
+  background-color: #eff6ff; /* Very light blue bg */
+  transform: translateX(10px);
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  transition: all 0.3s ease;
+}
+
+/* Icon rotates and fills color on hover */
+.contact-row:hover .icon-box {
+  background-color: #2563eb;
+  color: #ffffff;
+  transform: rotate(15deg) scale(1.1);
+}
+
+.contact-row span {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Map Box */
+.map-box {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  transition: transform 0.5s ease;
+}
+
+.contact-card:hover .map-box iframe {
+  transform: scale(1.05); /* Slight zoom on map when card is hovered */
+}
+
+/* ========================
+   4. FORM STYLES & BUTTON ANIMATION
+======================== */
+.input-group {
+  margin-bottom: 1.25rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Input Focus Animation */
+input:focus, select:focus, textarea:focus {
+  background-color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Button Animation (Sheen Effect) */
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* Important for the sheen */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The Sheen Gradient */
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:hover::before {
+  left: 100%; /* Moves the light across the button */
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.submit-btn:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.status {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #059669; /* Green */
+  animation: fadeIn 0.5s ease;
+}
+
+/* ========================
+   5. RESPONSIVE
+======================== */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+  }
+  
+  .contact-wrapper {
+    padding: 2rem 1rem;
+  }
+  
+  .contact-card:hover, .form-card:hover {
+    transform: translateY(-5px); /* Less movement on mobile */
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* End of Contact.css */
