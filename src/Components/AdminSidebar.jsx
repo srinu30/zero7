@@ -8,7 +8,7 @@ import {
   Building,
   ChevronDown,
   CircleUser,
-  ClipboardList, // <-- 1. IMPORTED THE ICON
+  ClipboardList,
   FileUser,
   Gift,
   GraduationCap,
@@ -24,6 +24,9 @@ import {
   UserCog,
   UserRound,
   UserSearch,
+  Users,
+  Briefcase,
+  FolderOpen,
 } from 'lucide-react'
 import Cookie from 'js-cookie'
 import './AdminSidebar.css'
@@ -31,6 +34,14 @@ import './AdminSidebar.css'
 export default function AdminSidebar({ isOpen }) {
   const location = useLocation()
   const navigate = useNavigate()
+  
+  // State for each dropdown
+  const [openInterviews, setOpenInterviews] = useState(false)
+  const [openBenchManagement, setOpenBenchManagement] = useState(false)
+  const [openCandidates, setOpenCandidates] = useState(false)
+  const [openJobsCompanies, setOpenJobsCompanies] = useState(false)
+  const [openRequests, setOpenRequests] = useState(false)
+  const [openManagement, setOpenManagement] = useState(false)
   const [openServices, setOpenServices] = useState(false)
   const [newRequestCount, setNewRequestCount] = useState(0)
 
@@ -38,7 +49,7 @@ export default function AdminSidebar({ isOpen }) {
   const role = user?.role
 
   const isActive = (path) => location.pathname === path
-  const isSubmenuActive = location.pathname.includes('programs')
+  const isSubmenuActive = (paths) => paths.some(path => location.pathname.includes(path))
 
   const handleLogout = () => {
     Cookie.remove('token')
@@ -52,192 +63,213 @@ export default function AdminSidebar({ isOpen }) {
 
   const allLinks = [
     ...commonLinks,
-    { path: '/admin/interviews', label: 'Interviews', icon: FileUser },
+    
+    // Interviews Dropdown
     {
-      path: '/admin/interviews/approvals',
-      label: 'Interviews Approvals',
-      icon: Hourglass,
+      type: 'dropdown',
+      key: 'interviews',
+      label: 'Interviews',
+      icon: FileUser,
+      state: openInterviews,
+      setState: setOpenInterviews,
+      submenu: [
+        { path: '/admin/interviews', label: 'Interviews', icon: FileUser },
+        { path: '/admin/interviews/approvals', label: 'Interviews Approvals', icon: Hourglass },
+      ]
     },
+
+    // Bench Management Dropdown
     {
-      path: '/admin/manage-candidates',
-      label: 'Manage Bench List',
+      type: 'dropdown',
+      key: 'bench-management',
+      label: 'Bench Management',
       icon: AlignHorizontalJustifyStart,
+      state: openBenchManagement,
+      setState: setOpenBenchManagement,
+      submenu: [
+        { path: '/admin/manage-candidates', label: 'Manage Bench List', icon: AlignHorizontalJustifyStart },
+        { path: '/admin/candidateList', label: 'Bench Approvals', icon: Hourglass },
+      ]
     },
+
+    // Candidates Dropdown
     {
-      path: '/admin/digital-courses-enrollment',
-      label: 'Digital Courses Enrollment',
-      icon: GraduationCap,
+      type: 'dropdown',
+      key: 'candidates',
+      label: 'Candidates',
+      icon: Users,
+      state: openCandidates,
+      setState: setOpenCandidates,
+      submenu: [
+        { path: '/admin/studentenrollment', label: 'Candidate Enrollment', icon: Store },
+        { path: '/admin/applications', label: 'View Applications', icon: Layers },
+        { path: '/admin/placedcandidates', label: 'Placed Candidates', icon: CircleUser },
+        { path: '/admin/digital-courses-enrollment', label: 'Digital Courses Enrollment', icon: GraduationCap },
+      ]
     },
+
+    // Jobs & Companies Dropdown
     {
-      path: '/admin/placedcandidates',
-      label: 'Placed Candidates',
-      icon: CircleUser,
+      type: 'dropdown',
+      key: 'jobs-companies',
+      label: 'Jobs & Companies',
+      icon: Briefcase,
+      state: openJobsCompanies,
+      setState: setOpenJobsCompanies,
+      submenu: [
+        { path: '/admin/manage-jobs', label: 'Manage Jobs', icon: CircleUser },
+        { path: '/admin/companies', label: 'Manage Companies', icon: Building },
+      ]
     },
-    { path: '/admin/candidateList', label: 'Bench Approvals', icon: Hourglass },
-    { path: '/admin/manage-jobs', label: 'Manage Jobs', icon: CircleUser },
-    { path: '/admin/companies', label: 'Manage Companies', icon: Building },
+
+    // Requests Dropdown
     {
-      path: '/admin/payroll-requests',
-      label: 'Payroll Requests',
-      icon: Receipt,
+      type: 'dropdown',
+      key: 'requests',
+      label: 'Requests',
+      icon: FolderOpen,
+      state: openRequests,
+      setState: setOpenRequests,
+      submenu: [
+        { path: '/admin/payroll-requests', label: 'Payroll Requests', icon: Receipt },
+        { path: '/admin/view-requests', label: 'View Requests', icon: AudioLines, isNotification: true },
+      ]
     },
-    {
-      path: '/admin/studentenrollment',
-      label: 'Candidate Enrollment',
-      icon: Store,
-    },
-    { path: '/admin/applications', label: 'View Applications', icon: Layers },
-    {
-      path: '/admin/view-requests',
-      label: 'View Requests',
-      icon: AudioLines,
-      isNotification: true,
-    },
-    {
-      path: '/admin/manage-recruiters',
-      label: 'Add Recruiter',
-      icon: UserSearch,
-    },
+
+    // Other single links
+    { path: '/admin/manage-recruiters', label: 'Add Recruiter', icon: UserSearch },
     { path: '/admin/manage-managers', label: 'Add Managers', icon: UserCog },
     { path: '/admin/manage-blogs', label: 'Manage Blogs', icon: Shield },
-    {
-      path: '/admin/new-batch-dashboard',
-      label: 'New Batches',
-      icon: FileUser,
-    },
+    { path: '/admin/new-batch-dashboard', label: 'New Batches', icon: FileUser },
     { path: '/admin/forms', label: 'College Connect Form', icon: Layers },
-    {
-      path: '/admin/contact-inquiries',
-      label: 'Contact Inquiries',
-      icon: MessageSquare,
-    },
     { path: '/admin/manage-offer', label: 'Manage Offer', icon: Gift },
+    { path: '/admin/batch-enrollments', label: 'Batch Enrollments', icon: ClipboardList },
 
-    // --- 2. ADDED THE BATCH ENROLLMENTS LINK FOR ADMIN ---
+    // Services Dropdown
     {
-      path: '/admin/batch-enrollments',
-      label: 'Batch Enrollments',
-      icon: ClipboardList,
-    },
-
-    {
-      path: '/admin/it-programs',
-      label: 'IT Programs',
+      type: 'dropdown',
+      key: 'services',
+      label: 'Services',
       icon: HardDrive,
-      isDropdown: true,
+      state: openServices,
+      setState: setOpenServices,
+      submenu: [
+        { path: '/admin/it-programs', label: 'IT Services' },
+        { path: '/admin/non-it-programs', label: 'Non IT Services' },
+      ]
     },
+
+     { path: '/admin/contact-inquiries', label: 'Contact Inquiries', icon: MessageSquare },
   ]
 
-  const sidebarConfig = {
-    manager: [
-      ...commonLinks,
-      { path: '/admin/interviews', label: 'Interviews', icon: FileUser },
-      {
-        path: '/admin/interviews/approvals',
-        label: 'Interviews Approvals',
-        icon: Hourglass,
-      },
-      {
-        path: '/admin/manage-candidates',
-        label: 'Manage Bench List',
-        icon: AlignHorizontalJustifyStart,
-      },
-      {
-        path: '/admin/candidateList',
-        label: 'Bench Approvals',
-        icon: Hourglass,
-      },
-      {
-        path: '/admin/placedcandidates',
-        label: 'Placed Candidates',
-        icon: CircleUser,
-      },
-      { path: '/admin/companies', label: 'Manage Companies', icon: Building },
-      { path: '/admin/manage-jobs', label: 'Manage Jobs', icon: CircleUser },
-      {
-        path: '/admin/payroll-requests',
-        label: 'Payroll Requests',
-        icon: Receipt,
-      },
-      {
-        path: '/admin/studentenrollment',
-        label: 'Candidate Enrollment',
-        icon: Store,
-      },
-      { path: '/admin/applications', label: 'View Applications', icon: Layers },
-      {
-        path: '/admin/view-requests',
-        label: 'View Requests',
-        icon: AudioLines,
-        isNotification: true,
-      },
-      {
-        path: '/admin/digital-courses-enrollment',
-        label: 'Digital Courses Enrollment',
-        icon: GraduationCap,
-      },
-      {
-        path: '/admin/manage-recruiters',
-        label: 'Add Recruiter',
-        icon: UserSearch,
-      },
-      { path: '/admin/forms', label: 'College Connect Form', icon: Layers },
-      {
-        path: '/admin/contact-inquiries',
-        label: 'Contact Inquiries',
-        icon: MessageSquare,
-      },
-
-      // --- 3. ADDED THE BATCH ENROLLMENTS LINK FOR MANAGER ---
-      {
-        path: '/admin/batch-enrollments',
-        label: 'Batch Enrollments',
-        icon: ClipboardList,
-      }, {
-      path: '/admin/new-batch-dashboard',
-      label: 'New Batches',
+  const managerLinks = [
+    ...commonLinks,
+    
+    {
+      type: 'dropdown',
+      key: 'interviews',
+      label: 'Interviews',
       icon: FileUser,
+      state: openInterviews,
+      setState: setOpenInterviews,
+      submenu: [
+        { path: '/admin/interviews', label: 'Interviews', icon: FileUser },
+        { path: '/admin/interviews/approvals', label: 'Interviews Approvals', icon: Hourglass },
+      ]
     },
 
-      {
-        path: '/admin/it-programs',
-        label: 'IT Programs',
-        icon: HardDrive,
-        isDropdown: true,
-      },
-    ],
-    recruiter: [
-      ...commonLinks,
-      { path: '/admin/interviews', label: 'Interviews', icon: FileUser },
-      {
-        path: '/admin/placedcandidates',
-        label: 'Placed Candidates',
-        icon: CircleUser,
-      },
-      {
-        path: '/admin/manage-candidates',
-        label: 'Manage Candidates',
-        icon: UserRound,
-      },
-      { path: '/admin/manage-jobs', label: 'Manage Jobs', icon: CircleUser },
-            {
-        path: '/admin/studentenrollment',
-        label: 'Candidate Enrollment',
-        icon: Store,
-      },
-      
-    ],
-  }
+    {
+      type: 'dropdown',
+      key: 'bench-management',
+      label: 'Bench Management',
+      icon: AlignHorizontalJustifyStart,
+      state: openBenchManagement,
+      setState: setOpenBenchManagement,
+      submenu: [
+        { path: '/admin/manage-candidates', label: 'Manage Bench List', icon: AlignHorizontalJustifyStart },
+        { path: '/admin/candidateList', label: 'Bench Approvals', icon: Hourglass },
+      ]
+    },
+
+    {
+      type: 'dropdown',
+      key: 'candidates',
+      label: 'Candidates',
+      icon: Users,
+      state: openCandidates,
+      setState: setOpenCandidates,
+      submenu: [
+        { path: '/admin/studentenrollment', label: 'Candidate Enrollment', icon: Store },
+        { path: '/admin/applications', label: 'View Applications', icon: Layers },
+        { path: '/admin/placedcandidates', label: 'Placed Candidates', icon: CircleUser },
+        { path: '/admin/digital-courses-enrollment', label: 'Digital Courses Enrollment', icon: GraduationCap },
+      ]
+    },
+
+    {
+      type: 'dropdown',
+      key: 'jobs-companies',
+      label: 'Jobs & Companies',
+      icon: Briefcase,
+      state: openJobsCompanies,
+      setState: setOpenJobsCompanies,
+      submenu: [
+        { path: '/admin/manage-jobs', label: 'Manage Jobs', icon: CircleUser },
+        { path: '/admin/companies', label: 'Manage Companies', icon: Building },
+      ]
+    },
+
+    {
+      type: 'dropdown',
+      key: 'requests',
+      label: 'Requests',
+      icon: FolderOpen,
+      state: openRequests,
+      setState: setOpenRequests,
+      submenu: [
+        { path: '/admin/payroll-requests', label: 'Payroll Requests', icon: Receipt },
+        { path: '/admin/view-requests', label: 'View Requests', icon: AudioLines, isNotification: true },
+      ]
+    },
+
+    { path: '/admin/manage-recruiters', label: 'Add Recruiter', icon: UserSearch },
+    { path: '/admin/forms', label: 'College Connect Form', icon: Layers },
+    { path: '/admin/batch-enrollments', label: 'Batch Enrollments', icon: ClipboardList },
+    { path: '/admin/new-batch-dashboard', label: 'New Batches', icon: FileUser },
+
+    {
+      type: 'dropdown',
+      key: 'services',
+      label: 'Services',
+      icon: HardDrive,
+      state: openServices,
+      setState: setOpenServices,
+      submenu: [
+        { path: '/admin/it-programs', label: 'IT Services' },
+        { path: '/admin/non-it-programs', label: 'Non IT Services' },
+      ]
+    },
+
+    { path: '/admin/contact-inquiries', label: 'Contact Inquiries', icon: MessageSquare }, 
+  ]
+
+  const recruiterLinks = [
+    ...commonLinks,
+    { path: '/admin/interviews', label: 'Interviews', icon: FileUser },
+    { path: '/admin/placedcandidates', label: 'Placed Candidates', icon: CircleUser },
+    { path: '/admin/manage-candidates', label: 'Manage Candidates', icon: UserRound },
+    { path: '/admin/manage-jobs', label: 'Manage Jobs', icon: CircleUser },
+    { path: '/admin/studentenrollment', label: 'Candidate Enrollment', icon: Store },
+  ]
 
   let linksToRender = []
   if (role === 'admin') linksToRender = allLinks
-  else if (role === 'manager') linksToRender = sidebarConfig.manager
-  else if (role === 'recruiter') linksToRender = sidebarConfig.recruiter
+  else if (role === 'manager') linksToRender = managerLinks
+  else if (role === 'recruiter') linksToRender = recruiterLinks
   else linksToRender = commonLinks
 
   return (
-    <aside
-      className={`admin-sidebar overflow-y-auto ${!isOpen ? 'collapsed' : ''}`}>
+    <aside className={`admin-sidebar overflow-y-auto ${!isOpen ? 'collapsed' : ''}`}>
       <div>
         <div className='admin-sidebar-header'>
           <div className='logo-img'>
@@ -249,60 +281,57 @@ export default function AdminSidebar({ isOpen }) {
           </div>
         </div>
         <nav>
-          {linksToRender.map((link) => {
-            if (link.isDropdown) {
+          {linksToRender.map((link, index) => {
+            if (link.type === 'dropdown') {
+              const submenuPaths = link.submenu.map(item => item.path)
+              const isDropdownActive = isSubmenuActive(submenuPaths)
+              
               return (
-                <div className='dropdown-container' key={link.path}>
+                <div className='dropdown-container' key={link.key || index}>
                   <div
-                    onClick={() => setOpenServices(!openServices)}
-                    className={`sidebar-link services-header ${
-                      isSubmenuActive ? 'active' : ''
-                    }`}
-                    data-tooltip='Services'>
+                    onClick={() => link.setState(!link.state)}
+                    className={`sidebar-link services-header ${isDropdownActive ? 'active' : ''}`}
+                    data-tooltip={link.label}>
                     <div className='dashboard-icon'>
-                      <HardDrive style={{ width: '18px', flexShrink: 0 }} />{' '}
-                      <span className='link-text'>Services</span>
+                      <link.icon style={{ width: '18px', flexShrink: 0 }} />
+                      <span className='link-text'>{link.label}</span>
                     </div>
                     <ChevronDown
                       size={18}
-                      className={`dropdown-arrow ${
-                        openServices ? 'rotate' : ''
-                      }`}
+                      className={`dropdown-arrow ${link.state ? 'rotate' : ''}`}
                     />
                   </div>
-                  {openServices && (
+                  {link.state && (
                     <div className='submenu'>
-                      <Link
-                        to='/admin/it-programs'
-                        className={`sidebar-link ${
-                          isActive('/admin/it-programs') ? 'active' : ''
-                        }`}
-                        data-tooltip='IT Services'>
-                        IT Services
-                      </Link>
-                      <Link
-                        to='/admin/non-it-programs'
-                        className={`sidebar-link ${
-                          isActive('/admin/non-it-programs') ? 'active' : ''
-                        }`}
-                        data-tooltip='Non-IT Services'>
-                        Non IT Services
-                      </Link>
+                      {link.submenu.map((sublink) => (
+                        <Link
+                          key={sublink.path}
+                          to={sublink.path}
+                          className={`sidebar-link ${isActive(sublink.path) ? 'active' : ''}`}
+                          data-tooltip={sublink.label}>
+                          <div className='dashboard-icon'>
+                            {sublink.icon && <sublink.icon style={{ width: '16px', flexShrink: 0 }} />}
+                            <span className='link-text'>{sublink.label}</span>
+                          </div>
+                          {sublink.isNotification && newRequestCount > 0 && (
+                            <span className='notification-badge'>{newRequestCount}</span>
+                          )}
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>
               )
             }
+
             return (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`sidebar-link ${
-                  isActive(link.path) ? 'active' : ''
-                }`}
+                className={`sidebar-link ${isActive(link.path) ? 'active' : ''}`}
                 data-tooltip={link.label}>
                 <div className='dashboard-icon'>
-                  <link.icon style={{ width: '18px', flexShrink: 0 }} />{' '}
+                  <link.icon style={{ width: '18px', flexShrink: 0 }} />
                   <span className='link-text'>{link.label}</span>
                 </div>
                 {link.isNotification && newRequestCount > 0 && (
